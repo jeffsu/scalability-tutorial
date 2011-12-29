@@ -1,0 +1,26 @@
+1. haproxy - load balancing
+  * routing [code]
+  * health checks [code]
+  * load balancing algorithms
+    * by resource [code]
+    * round robin [code]
+    * etc...
+2. nodejs - fast javascript
+  * evented == lots of concurrent requests
+  * thin/smart layer
+    * proxy [code]
+    * permission [code]
+3. redis
+  * memcache++
+  * key/value
+  * key/hash
+  * autoincrment
+4. varnish - fast caching
+  * caching layer
+  * optimized for 64 bit
+5. putting it all together
+  * haproxy
+  * 2 node servers
+  * redis data
+  * varnish
+  * app layer

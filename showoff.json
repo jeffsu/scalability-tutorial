@@ -1,0 +1,8 @@
+{
+  "name": "Open source tools to speed up your stack",
+  "sections": [
+    "haproxy",
+    "varnish",
+    "nodejs"
+  ]
+}
