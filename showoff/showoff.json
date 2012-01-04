@@ -3,6 +3,6 @@
   "sections": [
     "haproxy",
     "varnish",
-    "nodejs",
+    "nodejs"
   ]
 }

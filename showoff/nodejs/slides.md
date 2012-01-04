@@ -4,6 +4,8 @@
   * authentication
   * permissions
   * throttling
+  * logging
+  * statistics
 
 !SLIDE
 # Node.js - WebServer #
@@ -28,7 +30,7 @@
     var proxyServer = proxy.createPRoxy({ 
        remoteHost: "127.0.0.1", 
        remotePort: 3000 
-     });
+    });
     
     var server = connect(
       proxy.middleware(proxyServer)

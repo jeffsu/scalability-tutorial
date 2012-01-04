@@ -1,9 +1,9 @@
 !SLIDE 
 # Varnish - HTTP Acceleration #
 
+  * HTTP Accelerator
   * FAST
   * expressive C-like configuration
-  * tons of middleware features...
 
 !SLIDE
 # Varnish - Proxy #
@@ -34,8 +34,8 @@
 !SLIDE small
 # Varnish - Configuration Hooks
 
-  * recieve: lookup or pass
-  * lookup: hit or miss
+  * receive
+  * lookup
   * fetch
   * deliver
 
@@ -51,7 +51,7 @@
     }
 
 !SLIDE
-# Varnish - Features #
+# Varnish - Other Features #
 
   * graceful caching
   * ESI
