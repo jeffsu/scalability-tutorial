@@ -1,0 +1,29 @@
+!!! 5
+%html(lang="en")
+  %head
+    %title Todo List
+    = stylesheet_link_tag "application"
+    %style
+      :sass
+        body
+          margin-top: 50px
+  %body
+    .topbar
+      .fill
+        .container
+          %a{:class => "brand", :href => ""} Todo List
+          %ul.nav
+            %li
+              %a(href = "/") Home
+            %li
+              - if logged_in?
+                = link_to "(#{username}) Sign Out", "/signout"
+              - else
+                = link_to "Sign Out", "/signin"
+
+    .container
+      .content
+        = yield
+          
+      %footer
+        <p>&copy; Factual 2011</p>

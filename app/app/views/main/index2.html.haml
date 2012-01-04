@@ -1,0 +1,6 @@
+#{@user.name}
+%ol
+  - @user.todos.each do |t|
+    %li= t.content
+
+= render '/todos/form'

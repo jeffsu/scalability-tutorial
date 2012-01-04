@@ -10,12 +10,12 @@
 
     backend rails {
       .host = "127.0.0.1";
-      .port = 3000;
+      .port = "3000";
     }
 
     sub vcl_recv {
       unset req.http.cookie;
-      lookup;
+      return(lookup);
     }
 
 
@@ -25,10 +25,10 @@
     sub vcl_recv {
       if (req.request == "GET") {
         unset req.http.cookie;
-        lookup;
+        return(lookup);
       }
 
-      pass;
+      return(pass);
     }
 
 !SLIDE small
@@ -43,14 +43,11 @@
 # Varnish - Fetch Example
 
     sub vcl_fetch {
-      unset obj.http.set-cookie;
-      set obj.ttl = 12h;
- 
-      if (obj.status >= 300) {
-        pass;
+      if (beresp.status < 300) {
+        unset beresp.http.set-cookie;
+        set beresp.ttl = 20s;
+        return(deliver);
       }
- 
-      deliver;
     }
 
 !SLIDE

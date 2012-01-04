@@ -37,8 +37,8 @@ inter, fall, rise, backup, httpchk
     backend cache
       option httpchk GET /health-check
 
-      server cache 127.0.0.1:4000 inter 5 fall 1 rise 2
-      server rails 127.0.0.1:3001 inter 5 fall 1 rise 2 backup
+      server cache 127.0.0.1:4000 check inter 5s fall 1 rise 2
+      server rails 127.0.0.1:3001 check inter 5s fall 1 rise 2 backup
 
 !SLIDE
 

@@ -1,0 +1,7 @@
+Information
+===========
+
+Assumes you've installed rails and its running on 3001:
+
+    bundle install
+    rails s -p 3001

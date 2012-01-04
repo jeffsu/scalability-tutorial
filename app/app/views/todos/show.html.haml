@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Content:
+  = @todo.content
+%p
+  %b User:
+  = @todo.user_id
+
+= link_to 'Edit', edit_todo_path(@todo)
+\|
+= link_to 'Back', todos_path
