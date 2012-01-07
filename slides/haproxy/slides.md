@@ -1,38 +1,48 @@
 !SLIDE 
-# HAProxy #
+## HAProxy - Load Balancer
 
-  * proxying
+  * proxying (tcp, http)
   * load balancing
-  * health checking
   * routing
   
 !SLIDE
-HAProxy - Proxying
-------------------
+## HAProxy - Proxying
 
     frontend http-in
       bind *:80
       use_backend app
 
     backend app
-      server rails-app1 localhost:3000
+      server rails1 localhost:3000
+
+!SLIDE smbullets incremental
+## HAProxy - Load Balancing Algorithms
+
+  * roundrobin 
+  * source 
+  * url_param
+  * uri
 
 !SLIDE
-HAProxy - Load Balancing
-------------------------
-
-roundrobin, source, url_param, uri
+## HAProxy - Load Balancing
 
     backend app
       balance roundrobin
       server rails1 localhost:3000
       server rails2 localhost:3001
-   
-!SLIDE small
-HAProxy - Health Checking
--------------------------
 
-inter, fall, rise, backup, httpchk
+
+!SLIDE smbullets incremental
+## HAProxy - Health Checking
+
+  * inter: time between checks 
+  * fall: n failures till down'd
+  * rise: n successes till up'd
+  * backup: for emergency
+  * httpchk: http request for health check
+
+!SLIDE small
+## HAProxy - Health Checking
 
     backend cache
       option httpchk GET /health-check
@@ -41,9 +51,7 @@ inter, fall, rise, backup, httpchk
       server rails 127.0.0.1:3001 check inter 5s fall 1 rise 2 backup
 
 !SLIDE
-
-HAProxy - Routing
------------------
+## HAProxy - Routing
 
 Use caching layer for all javascript files
 

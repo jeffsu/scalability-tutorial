@@ -1,12 +1,12 @@
-!SLIDE 
-# Varnish - HTTP Acceleration #
+!SLIDE smbullets
+## Varnish - HTTP Acceleration
 
   * HTTP Accelerator
   * FAST
   * expressive C-like configuration
 
 !SLIDE
-# Varnish - Proxy #
+## Varnish - Proxy
 
     backend rails {
       .host = "127.0.0.1";
@@ -20,7 +20,7 @@
 
 
 !SLIDE small
-# Varnish - Smarter config
+## Varnish - Smarter config
 
     sub vcl_recv {
       if (req.request == "GET") {
@@ -31,16 +31,10 @@
       return(pass);
     }
 
-!SLIDE small
-# Varnish - Configuration Hooks
-
-  * receive
-  * lookup
-  * fetch
-  * deliver
-
 !SLIDE 
-# Varnish - Fetch Example
+## Varnish - Fetch Example
+
+After backend has been fetched
 
     sub vcl_fetch {
       if (beresp.status < 300) {
@@ -50,8 +44,8 @@
       }
     }
 
-!SLIDE
-# Varnish - Other Features #
+!SLIDE smbullets
+## Varnish - Other Features
 
   * graceful caching
   * ESI

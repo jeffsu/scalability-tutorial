@@ -1,8 +1,10 @@
 {
   "name": "Open source tools to speed up your stack",
   "sections": [
+    "main",
     "haproxy",
     "varnish",
-    "nodejs"
+    "nodejs",
+    "summary" 
   ]
 }
