@@ -1,4 +1,14 @@
 !SLIDE
+## Redis - Swiss Army Knife
+
+**King of "Others"**
+
+  * memcache++
+  * sharding, master/slave, persistent
+  * data strctures: strings, hashes, lists, sorted lists
+  * pub/sub
+
+!SLIDE
 ## Redis as cache-store
 
 Memcache alternative
@@ -7,7 +17,7 @@ Memcache alternative
     GET <key>
 
 !SLIDE
-## Redis for pubsub
+## Redis - PubSub
 
 Logging, events
 
@@ -16,7 +26,7 @@ Logging, events
     PUBLISH mychannel Hello
 
 !SLIDE
-## Redis for lists
+## Redis - Lists
 
 Process queues, object relationships
 

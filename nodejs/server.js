@@ -25,6 +25,7 @@ var proxyServer = require('./proxy').createProxy({
 
 // setup proxy server
 express.createServer(
+  function (req, res, next) { console.log(req.url); next() },
   hook.middleware.throttleIP(IP_LIMIT, 'hour'),
   hook.middleware.countIP('day'),
   hook.middleware.countURL('day'),
@@ -37,7 +38,8 @@ setInterval(function() { hook.middleware.sync(redis); }, SYNC_INTERVAL);
 // setup stats server
 var stats = express.createServer();
 stats.get('/', function (req, res, next) {
-  res.send(hook.middleware.htmlTable());
+  res.render('stats.jade', { data: hook.middleware.htmlTable() });
 });
+
 stats.listen(STATS_PORT);
 console.log("listening on " + MAIN_PORT + " for proxy and " + STATS_PORT + " for stats");

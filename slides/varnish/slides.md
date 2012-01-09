@@ -1,6 +1,8 @@
 !SLIDE smbullets
 ## Varnish - HTTP Acceleration
 
+**Don't Repeat Yourself**
+
   * HTTP Accelerator
   * FAST
   * expressive C-like configuration
@@ -8,22 +10,23 @@
 !SLIDE
 ## Varnish - Proxy
 
-    backend rails {
+    backend app {
       .host = "127.0.0.1";
       .port = "3000";
     }
 
     sub vcl_recv {
-      unset req.http.cookie;
-      return(lookup);
+      return(pass);
     }
 
 
 !SLIDE small
 ## Varnish - Smarter config
 
+<img src="varnish.png" />
+
     sub vcl_recv {
-      if (req.request == "GET") {
+      if (req.url ~ "^/static") {
         unset req.http.cookie;
         return(lookup);
       }
@@ -43,6 +46,23 @@ After backend has been fetched
         return(deliver);
       }
     }
+
+!SLIDE
+## Varnish - Semi Dynamic
+
+    sub vcl_fetch {
+      if (beresp.status < 300) {
+        if (req.url ~ "^/assets") {
+          unset beresp.http.set-cookie;
+          set beresp.ttl = 20s;
+          return(deliver);
+        } else {
+          set beresp.ttl = 1s;
+          return(deliver);
+        }
+      }
+    }
+
 
 !SLIDE smbullets
 ## Varnish - Other Features

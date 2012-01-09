@@ -1,14 +1,23 @@
 backend app {
   .host = "127.0.0.1";
-  .port = "3000";
+  .port = "3001";
 }
 
 sub vcl_recv {
+  if (req.request != "GET") {
+    return(pass);
+  }
+
   if (req.url ~ "^/assets") {
     unset req.http.cookie;
+    return(lookup);
   }
 
   return(lookup);
+}
+
+sub vcl_hash {
+  hash_data(req.http.cookie);
 }
 
 sub vcl_fetch {

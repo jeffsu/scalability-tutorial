@@ -5,6 +5,7 @@
     "haproxy",
     "varnish",
     "nodejs",
+    "redis",
     "summary" 
   ]
 }

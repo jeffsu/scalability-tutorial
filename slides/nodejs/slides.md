@@ -1,14 +1,15 @@
-!SLIDE small
+!SLIDE small incremental
 ## Node.js - Fronting the stack #
 
-  * authentication
-  * permissions
+**The Smart Proxy**
+
   * throttling
   * logging
   * statistics
+  * DRY authentication
 
 !SLIDE
-## Node.js - Proxy
+## Node.js - As a Proxy
 
     var express = require('express');
     var proxy   = require('proxy');

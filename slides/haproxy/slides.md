@@ -1,35 +1,42 @@
 !SLIDE 
 ## HAProxy - Load Balancer
 
+**Scalability + Availability**
+ 
   * proxying (tcp, http)
   * load balancing
   * routing
   
+
 !SLIDE
 ## HAProxy - Proxying
+<img src="simple-proxy.png" />
 
     frontend http-in
       bind *:80
       use_backend app
 
     backend app
-      server rails1 localhost:3000
+      server app localhost:3000
+
 
 !SLIDE smbullets incremental
 ## HAProxy - Load Balancing Algorithms
 
-  * roundrobin 
-  * source 
-  * url_param
-  * uri
+  * roundrobin
+  * source - ip address
+  * url_param - query param /todos?user=123
+  * uri - /users/123
+  * cookie
 
 !SLIDE
 ## HAProxy - Load Balancing
+<img src="load-balancing.png" />
 
     backend app
       balance roundrobin
-      server rails1 localhost:3000
-      server rails2 localhost:3001
+      server app1 127.0.0.1:3001
+      server app2 127.0.0.1:3002
 
 
 !SLIDE smbullets incremental
@@ -43,12 +50,13 @@
 
 !SLIDE small
 ## HAProxy - Health Checking
+<img src="backup.png" />
 
     backend cache
       option httpchk GET /health-check
 
       server cache 127.0.0.1:4000 check inter 5s fall 1 rise 2
-      server rails 127.0.0.1:3001 check inter 5s fall 1 rise 2 backup
+      server app1  127.0.0.1:3001 check inter 5s fall 1 rise 2 backup
 
 !SLIDE
 ## HAProxy - Routing
