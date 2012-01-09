@@ -1,4 +1,7 @@
 !SLIDE 
+<img src="arch.png" style="position: absolute; top: 0px; left: 200px; " />
+
+!SLIDE 
 ## Performance
 
 <table>

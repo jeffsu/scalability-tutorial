@@ -10,7 +10,7 @@ var hook  = require('hook');
 var redis = require('redis').createClient();
 
 // configuration
-var IP_LIMIT      = 100000;
+var IP_LIMIT      = 50;
 var MAIN_PORT     = 5001;
 var STATS_PORT    = 5555;
 var PROXY_HOST    = "127.0.0.1";
@@ -26,7 +26,7 @@ var proxyServer = require('./proxy').createProxy({
 // setup proxy server
 express.createServer(
   function (req, res, next) { console.log(req.url); next() },
-  hook.middleware.throttleIP(IP_LIMIT, 'hour'),
+  hook.middleware.throttleIP(IP_LIMIT, 'minute'),
   hook.middleware.countIP('day'),
   hook.middleware.countURL('day'),
   proxy.middleware(proxyServer)

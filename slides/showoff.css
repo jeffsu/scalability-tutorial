@@ -35,3 +35,11 @@ table td, table th {
   border-left: 1px solid black;
   border-bottom: 1px solid black;
 }
+
+.bottom-corner-img {
+  display: block;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  z-index: -100;
+}

@@ -10,7 +10,7 @@
 
 !SLIDE
 ## HAProxy - Proxying
-<img src="simple-proxy.png" />
+<img src="simple-proxy.png" height="200px" />
 
     frontend http-in
       bind *:80
@@ -39,18 +39,22 @@
       server app2 127.0.0.1:3002
 
 
-!SLIDE smbullets incremental
+!SLIDE smbullets
 ## HAProxy - Health Checking
 
+  * httpchk: http request for health check
   * inter: time between checks 
   * fall: n failures till down'd
   * rise: n successes till up'd
   * backup: for emergency
-  * httpchk: http request for health check
+
+<img class="bottom-corner-img" src="/image/haproxy/health.jpg" />
 
 !SLIDE small
 ## HAProxy - Health Checking
-<img src="backup.png" />
+<div style="height: 200px; width: 150px;">
+<img src="backup.png" style="margin-left: 200px" />
+</div>
 
     backend cache
       option httpchk GET /health-check

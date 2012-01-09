@@ -23,7 +23,9 @@
 !SLIDE small
 ## Varnish - Smarter config
 
-<img src="varnish.png" />
+<div style="height: 200px; width: 150px;">
+<img src="varnish.png" style="margin-left: 200px" />
+</div>
 
     sub vcl_recv {
       if (req.url ~ "^/static") {
