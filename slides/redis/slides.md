@@ -1,5 +1,5 @@
 !SLIDE 
-## Redis
+## Redis - Silver Bullet?
 
 **Memcached++**
 
