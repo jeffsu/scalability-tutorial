@@ -1,19 +1,34 @@
+!SLIDE
+# Redis
+
+
+*"If you aren't using redis, you're probably doing something wrong."*
+
+Boris Shimanovsky 
+
+(Director of Engineering at Factual)
+
+<img src="robin.jpg" style="position: absolute; left: 0; top: 0; z-index: -1; width: 100%; opacity: 0.5;" />
+
 !SLIDE 
-## Redis - Silver Bullet?
+# Redis
+
+**NoSQL?**
+
+!SLIDE 
+# Redis
 
 **Memcached++**
 
-<img class="bottom-corner-img" src="/image/redis/silver-bullet.jpg" />
 
 !SLIDE 
-## Redis - Replication
+## Redis 
 
-Replicate master
+**Replication**
 
     slaveof 10.0.1.3 6379
 
-!SLIDE 
-## Redis - Persistence 
+**Persistence**
 
 Save every 60 seconds or after 1000 keys have changed
 
@@ -31,14 +46,6 @@ Save every 60 seconds or after 1000 keys have changed
 ## Redis - Publish/Subscribe
 
     client1> SUBSCRIBE user-changed
-
-!SLIDE
-## Redis - Publish/Subscribe
-
     client2> PUBLISH user-changed 123
+    client1> "123"
 
-!SLIDE
-## Redis - Publish/Subscribe
-
-    client1> SUBSCRIBE user-changed
-      "123"

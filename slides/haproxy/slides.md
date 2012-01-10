@@ -1,16 +1,18 @@
-!SLIDE 
-## HAProxy - Load Balancer
+!SLIDE small smbullets
+## HAProxy - Load Balancing Proxy
 
 **Scalability + Availability**
  
   * proxying (tcp, http)
   * load balancing
   * routing
+
+<img src="belt.jpg" style="position: absolute; bottom: 100px; right: 100px;" />
   
 
 !SLIDE
 ## HAProxy - Proxying
-<img src="simple-proxy.png" height="200px" />
+<img src="simple-proxy.png" />
 
     frontend http-in
       bind *:80
@@ -20,18 +22,18 @@
       server app localhost:3000
 
 
-!SLIDE smbullets incremental
+!SLIDE smbullets
 ## HAProxy - Load Balancing Algorithms
 
-  * roundrobin
-  * source - ip address
+  * roundrobin (no affinity)
+  * source 
   * url_param - query param /todos?user=123
   * uri - /users/123
   * cookie
 
 !SLIDE
 ## HAProxy - Load Balancing
-<img src="load-balancing.png" />
+<img src="load-balancing.jpg" />
 
     backend app
       balance roundrobin
@@ -52,9 +54,7 @@
 
 !SLIDE small
 ## HAProxy - Health Checking
-<div style="height: 200px; width: 150px;">
-<img src="backup.png" style="margin-left: 200px" />
-</div>
+<img src="backup.jpg" />
 
     backend cache
       option httpchk GET /health-check
@@ -69,6 +69,15 @@ Use caching layer for all javascript files
 
     frontend http-in
       bind *:80
-      acl is_cache url_beg /javascripts/
+      acl is_cache url_beg /assets/
+      acl is_javascript url_beg /javascripts/
+
       use_backend cache if is_cache
+      use_backend cache if is_javascript
+
       default_backend app
+
+!SLIDE
+<img src="/image/summary/arch.png" style="position: absolute; top: 0px; left: 200px; " />
+
+

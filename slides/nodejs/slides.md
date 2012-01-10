@@ -1,12 +1,14 @@
 !SLIDE small incremental
-## Node.js - Fronting the stack #
+## Node.js - Smart Proxy#
 
-**The Smart Proxy**
+**Fronting the stack**
 
+  * statistics
   * throttling
   * logging
-  * statistics
-  * DRY authentication
+  * authentication
+
+<img src="hook.jpg" height="300px" width="280px"/>
 
 !SLIDE
 ## Node.js - As a Proxy
@@ -42,3 +44,25 @@
     });
 
     server.listen(8888);
+
+!SLIDE  smbullets
+## Node.js - Factual Open Source Projects
+
+  * hook - statistics & throttling
+  * mochiscript - Javascript Dessert
+ 
+*Syntax*
+
+    class Person {
+      function say(msg) {
+        alert(msg);
+      }
+    }
+
+    var person = new Person();
+    person.say("hello");
+
+!SLIDE
+<img src="/image/summary/arch.png" style="position: absolute; top: 0px; left: 200px; " />
+
+

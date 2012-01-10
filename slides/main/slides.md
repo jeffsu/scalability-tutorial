@@ -1,19 +1,23 @@
 !SLIDE smbullets
-
-## Factual's Utility Belt
+## Scaling Factual's API
 
 by Jeff Su
+<img src="/image/main/scaling.jpg" style="position: absolute; top: 0; left: 0; z-index: -1; opacity: 0.3" />
 
-<img src="belt.jpg" />
+!SLIDE 
+<img src="belt.jpg" width="100%" />
 
 !SLIDE smbullets
 
 ## Performance, Scalability, Availability
-
 
   * haproxy
   * varnish
   * node
   * redis
  
-<div class="bottom-corner-img"><img  src="/image/main/scale.jpg" /></div>
+
+!SLIDE
+<img src="/image/summary/arch.png" style="position: absolute; top: 0px; left: 200px; " />
+
+
